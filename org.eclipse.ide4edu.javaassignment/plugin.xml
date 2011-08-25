@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.ide4edu.javaassignment.asgmt"
+            name="Assignment">
+      </category>
+      <wizard
+            category="org.eclipse.ide4edu.javaassignment.asgmt"
+            class="org.eclipse.ide4edu.javaassignment.JavaAssignmentWizard"
+            descriptionImage="icons/newjasgmt_wiz.gif"
+            finalPerspective="org.eclipse.ide4edu.javalite.infrastructure.JavaLitePerspective"
+            icon="icons/newjasgmt_wiz.gif"
+            id="org.eclipse.ide.javaassignment.wizard1"
+            name="Java Assignment"
+            preferredPerspectives="org.eclipse.jdt.ui.JavaPerspective,org.eclipse.jdt.ui.JavaBrowsingPerspective,org.eclipse.jdt.ui.JavaHierarchyPerspective"
+            project="false">
+         <description>
+            Create a new Java Assignment
+         </description>
+         <keywordReference
+               id="org.eclipse.ide4edu.javaassignment.asgmtNature">
+         </keywordReference>
+      </wizard>
+      <wizard
+            category="org.eclipse.ide4edu.javaassignment.asgmt"
+            class="org.eclipse.ide4edu.javaassignment.JavaLiteAssignmentWizard"
+            descriptionImage="icons/newjasgmt_wiz.gif"
+            icon="icons/newjasgmt_wiz.gif"
+            id="org.eclipse.ide.javaassignment.wizard1"
+            name="Java Assignment Lite"
+            project="false">
+         <description>
+            Create a new Java Assignment with default settings
+         </description>
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <wizard
+            category="org.eclipse.ide4edu.javaassignment.importCategory"
+            class="org.eclipse.ide4edu.importWizard.ExternalAssignmentImportWizard"
+            icon="icons/newjasgmt_wiz.gif"
+            id="org.eclipse.ide4edu.javaassignment.importWizard"
+            name="Existing Assignments into Workspace">
+         <description>
+            Import existing assignments on file system into the workspace
+         </description>
+         <keywordReference
+               id="org.eclipse.ui.ide.archive">
+         </keywordReference>
+      </wizard>
+      <category
+            id="org.eclipse.ide4edu.javaassignment.importCategory"
+            name="Assignment">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="org.eclipse.jdt.ui.java.browsing"
+            class="org.eclipse.jdt.internal.ui.browsing.ProjectsView"
+            icon="icons/newjasgmt_wiz.gif"
+            id="org.eclipse.ide4edu.javaassignment.view1"
+            name="Assignments"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         id="asgmtNature"
+         name="AssignmentNamture"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="org.eclipse.ide4edu.javaassignment.AssignmentNature">
+         </run>
+      </runtime>
+   </extension>
+   <extension
+         point="org.eclipse.ui.ide.projectNatureImages">
+      <image
+            icon="icons/asgmt_ovr.gif"
+            id="org.eclipse.ide4edu.javaassignment.natureImg"
+            natureId="org.eclipse.ide4edu.javaassignment.asgmtNature">
+      </image>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="org.eclipse.ide4edu.javaassignment.category1"
+            name="name">
+      </category>
+      <command
+            categoryId="org.eclipse.ide4edu.javaassignment.category1"
+            id="org.eclipse.ide4edu.javaassignment.openChatCmd"
+            name="OpenChat">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.eclipse.ide4edu.chat.OpenChatHandler"
+            commandId="org.eclipse.ide4edu.javaassignment.openChatCmd">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="true"
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="openchatid"
+               label="Chat">
+            <command
+                  commandId="org.eclipse.ide4edu.javaassignment.openChatCmd"
+                  icon="icons/sample.gif"
+                  id="javaassignment.chatCmd"
+                  label="Chat with TA"
+                  style="push"
+                  tooltip="Open Chat">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>
